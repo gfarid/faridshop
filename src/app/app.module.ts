@@ -3,14 +3,44 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { ProductsComponent } from './components/products/products.component';
+import { MyOrderComponent } from './components/my-order/my-order.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
+import { CheckOutComponent } from './components/check-out/check-out.component';
+import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
+
+import { AngularFireModule } from '@angular/fire'; 
+import { AngularFireDatabaseModule } from '@angular/fire/database'; 
+import { AngularFireAuthModule } from '@angular/fire/auth'; 
+import { environment } from 'src/environments/environment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    AdminOrdersComponent,
+    AdminProductsComponent,
+    ProductsComponent,
+    MyOrderComponent,
+    ShoppingCartComponent,
+    OrderSuccessComponent,
+    CheckOutComponent,
+    BsNavbarComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
