@@ -27,8 +27,7 @@ export class ProductFormComponent implements OnInit {
     if (this.productid) {
       this.productService.getProduct(this.productid).pipe(take(1)).subscribe((product: any) => this.product = product);
     }
-    this.categories$ = this.categoryService.categoryRef.snapshotChanges().pipe(
-      map((changes: any) => changes.map((item: any) => ({key: item.key , value: item.payload.val()}))));
+    this.categories$ = this.categoryService.getCategoriesWithKeys();
   }
 
   ngOnInit(): void {

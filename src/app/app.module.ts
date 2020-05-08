@@ -22,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { SortTableDirective } from './directives/sort-table.directive';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SortTableDirective } from './directives/sort-table.directive';
     CheckOutComponent,
     BsNavbarComponent,
     ProductFormComponent,
-    SortTableDirective
+    SortTableDirective,
+    CategoriesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

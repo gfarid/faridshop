@@ -37,13 +37,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
-
-// get filteredProducts(): any[] {
-//     if ( !this.products ||  !this.products.length) { return []; }
-//     return this.products
-//       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-// }
-
 sortTable(param) {
   this.reverseorder = ! this.reverseorder;
   this.products.sort((a, b) => (a.value[param] > b.value[param]) ? 1 : ((b.value[param] > a.value[param]) ? -1 : 0));

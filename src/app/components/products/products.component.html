@@ -1,1 +1,17 @@
-<p>products works!</p>
+    <div class="container">
+        <div class="row">
+        <ng-container *ngFor=" let p of filteredproducts ; let i = index">
+                <div class="col">
+                  <div class="card" style="width: 15rem;">
+                      <img [src]="p.value.imageUrl" class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">{{p.value.title}}</h5>
+                        <p class="card-text">{{p.value.price| currency:'USD':true}}</p>
+                        <a href="#" class="btn btn-primary">Add to card</a>
+                      </div>
+                  </div>
+                </div>
+                <div class="w-100" *ngIf="(i+1) % 2 === 0"></div>
+        </ng-container>
+        </div>
+      </div>
