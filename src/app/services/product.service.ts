@@ -5,10 +5,27 @@ import { AngularFireDatabase } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class ProductService {
-
   constructor(private db: AngularFireDatabase) { }
 
   create(product) {
     return this.db.list('/products').push(product);
+  }
+
+  getAllProducts() {
+    return this.db.list('/products');
+  }
+
+  getProduct(id) {
+    return this.db.object(`/products/${id}`).valueChanges();
+  }
+
+  updateProduct(id, product) {
+    return this.db.object(`/products/${id}`).update(product);
+  }
+
+  deleteProduct(id) {
+    //return this.db.object('/products').remove(id)
+
+    return this.db.list('/products').remove(id);
   }
 }

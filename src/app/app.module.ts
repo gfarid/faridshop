@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     ShoppingCartComponent,
     OrderSuccessComponent,
     CheckOutComponent,
-    BsNavbarComponent
+    BsNavbarComponent,
+    ProductFormComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -43,7 +45,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireAuthModule,
     NgbModule,
     FormsModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
