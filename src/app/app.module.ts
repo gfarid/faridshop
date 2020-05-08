@@ -21,6 +21,8 @@ import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { SortTableDirective } from './directives/sort-table.directive';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     OrderSuccessComponent,
     CheckOutComponent,
     BsNavbarComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    SortTableDirective
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -44,8 +47,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
-    FormsModule
-    ],
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

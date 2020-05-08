@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { map } from 'rxjs/operators';
@@ -11,13 +11,22 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./admin-products.component.scss']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-  products: Product[];
-  filteredProducts: any[];
+  products;
   subscription: Subscription;
+  reverseorder = true;
+  filteredProducts = [];
+
+  page = 1;
+  pageSize = 5;
+  collectionSize = [];
+
   constructor(private productService: ProductService) {
     this.subscription = this.productService.getAllProducts().snapshotChanges().pipe(
       map((changes: any) => changes.map((item: any) => ({key: item.key , value: item.payload.val()})))
-    ).subscribe(products => this.filteredProducts = this.products = products);
+    ).subscribe(products => {
+      this.collectionSize = products.length;
+      this.filteredProducts = this.products = products;
+    });
   }
 
   filterList(query) {
@@ -27,6 +36,21 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
   }
+
+
+// get filteredProducts(): any[] {
+//     if ( !this.products ||  !this.products.length) { return []; }
+//     return this.products
+//       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+// }
+
+sortTable(param) {
+  this.reverseorder = ! this.reverseorder;
+  this.products.sort((a, b) => (a.value[param] > b.value[param]) ? 1 : ((b.value[param] > a.value[param]) ? -1 : 0));
+  if (this.reverseorder) {
+    this.products.reverse();
+  }
+}
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
