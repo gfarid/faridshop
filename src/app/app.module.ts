@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { SortTableDirective } from './directives/sort-table.directive';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     BsNavbarComponent,
     ProductFormComponent,
     SortTableDirective,
-    CategoriesComponent
+    CategoriesComponent,
+    ProductCardComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

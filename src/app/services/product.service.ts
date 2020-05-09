@@ -18,7 +18,7 @@ export class ProductService {
 
   getAllProductsWithKeys() {
     return this.db.list('/products').snapshotChanges().pipe(
-      map((changes: any) => changes.map((item: any) => ({key: item.key , value: item.payload.val()}))));
+      map((changes: any) => changes.map((item: any) => ({ key: item.key , ...item.payload.val()}))));
   }
 
   getProduct(id) {
@@ -31,7 +31,6 @@ export class ProductService {
 
   deleteProduct(id) {
     //return this.db.object('/products').remove(id)
-
     return this.db.list('/products').remove(id);
   }
 }

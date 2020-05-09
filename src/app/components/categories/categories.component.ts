@@ -8,7 +8,7 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoriesComponent implements OnInit {
   categories$;
-  constructor(private categoryService: CategoryService) {
+  constructor(public categoryService: CategoryService) {
     this.categories$ = this.categoryService.getCategoriesWithKeys();
   }
 

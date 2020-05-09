@@ -21,16 +21,14 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   collectionSize = [];
 
   constructor(private productService: ProductService) {
-    this.subscription = this.productService.getAllProducts().snapshotChanges().pipe(
-      map((changes: any) => changes.map((item: any) => ({key: item.key , value: item.payload.val()})))
-    ).subscribe(products => {
+    this.subscription = this.productService.getAllProductsWithKeys().subscribe(products => {
       this.collectionSize = products.length;
       this.filteredProducts = this.products = products;
     });
   }
 
   filterList(query) {
-    this.filteredProducts = query ? this.products.filter((product: any) => product.value.title.toLowerCase().
+    this.filteredProducts = query ? this.products.filter((product: any) => product.title.toLowerCase().
                                                   includes(query.toLowerCase())) : this.products;
   }
 
@@ -39,7 +37,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
 sortTable(param) {
   this.reverseorder = ! this.reverseorder;
-  this.products.sort((a, b) => (a.value[param] > b.value[param]) ? 1 : ((b.value[param] > a.value[param]) ? -1 : 0));
+  this.products.sort((a, b) => (a[param] > b[param]) ? 1 : ((b[param] > a[param]) ? -1 : 0));
   if (this.reverseorder) {
     this.products.reverse();
   }
