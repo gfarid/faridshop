@@ -38,7 +38,7 @@
             </div>
           </div>
         <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" (click)="deleteProduct()" class="btn btn-danger">Delete</button>
+        <button type="button" *ngIf="productid" (click)="deleteProduct()" class="btn btn-danger space">Delete</button>
     </form>
   </div>
 

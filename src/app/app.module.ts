@@ -22,9 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { SortTableDirective } from './directives/sort-table.directive';
-import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
-
+import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +40,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     BsNavbarComponent,
     ProductFormComponent,
     SortTableDirective,
-    CategoriesComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductFilterComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
