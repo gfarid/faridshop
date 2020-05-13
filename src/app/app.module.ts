@@ -26,6 +26,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary
     ProductCardComponent,
     ProductFilterComponent,
     ProductQuantityComponent,
-    ShoppingCartSummaryComponent
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
