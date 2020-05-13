@@ -25,6 +25,7 @@ import { SortTableDirective } from './directives/sort-table.directive';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
+import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProductQuantityComponent } from './components/product-quantity/product-
     SortTableDirective,
     ProductCardComponent,
     ProductFilterComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ShoppingCartSummaryComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
